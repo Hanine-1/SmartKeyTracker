@@ -2,7 +2,7 @@
 A smart key tracker that ensures you never leave home without your keys, using an ESP32 to deliver real time speaker alerts and phone notifications, with weekly statistics on your usage pattern.
 
 ## 1. Overview
-The system detects the presence of keys and triggers and door motion:
+The system detects the presence of keys and door motion to trigger:
 - Real time audible alerts via speaker
 - Phone notifications via WiFi
 - Weekly usage statistics tracking key-carrying behavior
