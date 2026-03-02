@@ -98,3 +98,18 @@ Firmware will be implemented using a state machine architecture.
 | **KEY_PRES** | FSR (Force) | Analog (ADC) | Detects weight of keys in the holder. |
 | **ALARM_BUZ** | Piezo Buzzer | PWM (Output) | Audible frequency-based reminders. |
 | **WIFI_LOG** | ESP32 Internal | TCP/UDP (Data) | Transmission of event statistics to cloud. |
+
+###Logic Formalization (Boolean Modeling)
+
+##Variable Mapping
+* $A = \text{Door Sensor}$ ($1 = \text{Open} \mid 0 = \text{Closed}$)
+* $B = \text{Key Sensor (FSR)}$ ($1 = \text{Present} \mid 0 = \text{Absent}$)
+* $K_{prev} = \text{Last Known Key State}$ ($1 = \text{Was Present}$)
+
+##Boolean Expressions for Alarm Triggers
+
+| Alarm Type | Boolean Expression | Condition Description |
+| :--- | :--- | :--- |
+| **Exit Alarm** ($Y_1$) | $Y_1 = A \cdot B \cdot K_{prev}$ | Door opens + Keys are still in holder. |
+| **Entry Alarm** ($Y_2$) | $Y_2 = A \cdot \bar{B} \cdot \bar{K}_{prev} \cdot (T > 30s)$ | Door opened + Keys not hung within 30s. |
+| **System Reset** ($R$) | $R = \bar{A} + B$ | Closing the door or hanging keys resets the alert. |
