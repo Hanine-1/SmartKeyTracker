@@ -37,7 +37,7 @@ The system:
 - LiPo battery — at least 3600mAh
 - 3.3V voltage regulator
 
-### Software Modules (Planned)
+###Software Modules (Planned)
 
 - Sensor Interface Layer
 - Presence Detection Logic
@@ -47,7 +47,7 @@ The system:
 - Statistics Engine
 
 
-## 6. System States (Initial Concept)
+##6. System States (Initial Concept)
 
 - INIT
 - IDLE
